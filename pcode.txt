@@ -1,0 +1,21 @@
+MAIN main null
+VAR 1_a null
+PUSH 2 null
+DIMVAR 1_a 1
+PUSH 0 null
+VAR 1_b null
+PUSH 1 null
+DIMVAR 1_b 1
+PUSH 0 null
+PUSH 1 null
+PUSH 1 null
+VALUE 1_a 0
+PRINT "%d
+" 1
+PUSH 1 null
+VALUE 1_b 0
+PRINT "%d
+" 1
+PUSH 0 null
+RET 1 null
+EXIT null null
