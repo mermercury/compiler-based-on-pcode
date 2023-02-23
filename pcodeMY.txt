@@ -1,0 +1,793 @@
+VAR 0_a
+PUSH 4
+PUSH 4
+DIMVAR 0_a, 2
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+VAR 0_b
+PUSH 4
+PUSH 4
+DIMVAR 0_b, 2
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+VAR 0_a_row
+PLACEHOLDER 0_a_row, 0
+VAR 0_a_col
+PLACEHOLDER 0_a_col, 0
+VAR 0_b_row
+PLACEHOLDER 0_b_row, 0
+VAR 0_b_col
+PLACEHOLDER 0_b_col, 0
+VAR 0_c_row
+PLACEHOLDER 0_c_row, 0
+VAR 0_c_col
+PLACEHOLDER 0_c_col, 0
+VAR 0_c
+PUSH 4
+PUSH 4
+DIMVAR 0_c, 2
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+PUSH 0
+VAR 0_err
+PLACEHOLDER 0_err, 0
+VAR 0_l
+PUSH 0
+VAR 0_r
+PUSH 0
+FUNC @Matrix_mult:
+VAR 1_i
+PLACEHOLDER 1_i, 0
+VAR 1_j
+PLACEHOLDER 1_j, 0
+VAR 1_k
+PLACEHOLDER 1_k, 0
+PUSH 1_i
+ADDRESS 1_i, 0
+PUSH 0
+POP 1_i
+label_while_1: 
+PUSH 1_i
+VALUE 1_i, 0
+PUSH 0_a_row
+VALUE 0_a_row, 0
+CMPLT 
+label_cond_0_4: 
+JZ label_while_end_2
+label_while_block_3: 
+PUSH 1_j
+ADDRESS 1_j, 0
+PUSH 0
+POP 1_j
+label_while_5: 
+PUSH 1_j
+VALUE 1_j, 0
+PUSH 0_b_col
+VALUE 0_b_col, 0
+CMPLT 
+label_cond_0_8: 
+JZ label_while_end_6
+label_while_block_7: 
+PUSH 1_k
+ADDRESS 1_k, 0
+PUSH 0
+POP 1_k
+label_while_9: 
+PUSH 1_k
+VALUE 1_k, 0
+PUSH 0_a_col
+VALUE 0_a_col, 0
+CMPLT 
+label_cond_0_12: 
+JZ label_while_end_10
+label_while_block_11: 
+PUSH 0_c
+PUSH 1_i
+VALUE 1_i, 0
+PUSH 1_j
+VALUE 1_j, 0
+ADDRESS 0_c, 0
+PUSH 0_c
+PUSH 1_i
+VALUE 1_i, 0
+PUSH 1_j
+VALUE 1_j, 0
+VALUE 0_c, 0
+PUSH 0_a
+PUSH 1_i
+VALUE 1_i, 0
+PUSH 1_k
+VALUE 1_k, 0
+VALUE 0_a, 0
+PUSH 0_b
+PUSH 1_k
+VALUE 1_k, 0
+PUSH 1_j
+VALUE 1_j, 0
+VALUE 0_b, 0
+MUL 
+ADD 
+POP 0_c
+PUSH 1_k
+ADDRESS 1_k, 0
+PUSH 1_k
+VALUE 1_k, 0
+PUSH 1
+ADD 
+POP 1_k
+JMP label_while_9
+label_while_end_10: 
+PUSH 1_j
+ADDRESS 1_j, 0
+PUSH 1_j
+VALUE 1_j, 0
+PUSH 1
+ADD 
+POP 1_j
+JMP label_while_5
+label_while_end_6: 
+PUSH 1_i
+ADDRESS 1_i, 0
+PUSH 1_i
+VALUE 1_i, 0
+PUSH 1
+ADD 
+POP 1_i
+JMP label_while_1
+label_while_end_2: 
+PUSH 0_c_row
+ADDRESS 0_c_row, 0
+PUSH 1_i
+VALUE 1_i, 0
+POP 0_c_row
+PUSH 0_c_col
+ADDRESS 0_c_col, 0
+PUSH 1_j
+VALUE 1_j, 0
+POP 0_c_col
+RET 0
+RET 0
+ENDFUNC 
+FUNC @Matrix_add:
+PARA 5_row, 0
+PARA 5_col, 0
+VAR 5_i
+PLACEHOLDER 5_i, 0
+VAR 5_j
+PLACEHOLDER 5_j, 0
+PUSH 5_i
+ADDRESS 5_i, 0
+PUSH 0
+POP 5_i
+label_while_13: 
+PUSH 5_i
+VALUE 5_i, 0
+PUSH 5_row
+VALUE 5_row, 0
+CMPLT 
+label_cond_0_16: 
+JZ label_while_end_14
+label_while_block_15: 
+PUSH 5_j
+ADDRESS 5_j, 0
+PUSH 0
+POP 5_j
+label_while_17: 
+PUSH 5_j
+VALUE 5_j, 0
+PUSH 5_col
+VALUE 5_col, 0
+CMPLT 
+label_cond_0_20: 
+JZ label_while_end_18
+label_while_block_19: 
+PUSH 0_c
+PUSH 5_i
+VALUE 5_i, 0
+PUSH 5_j
+VALUE 5_j, 0
+ADDRESS 0_c, 0
+PUSH 0_a
+PUSH 5_i
+VALUE 5_i, 0
+PUSH 5_j
+VALUE 5_j, 0
+VALUE 0_a, 0
+PUSH 0_b
+PUSH 5_i
+VALUE 5_i, 0
+PUSH 5_j
+VALUE 5_j, 0
+VALUE 0_b, 0
+ADD 
+POP 0_c
+PUSH 5_j
+ADDRESS 5_j, 0
+PUSH 5_j
+VALUE 5_j, 0
+PUSH 1
+ADD 
+POP 5_j
+JMP label_while_17
+label_while_end_18: 
+PUSH 5_i
+ADDRESS 5_i, 0
+PUSH 5_i
+VALUE 5_i, 0
+PUSH 1
+ADD 
+POP 5_i
+JMP label_while_13
+label_while_end_14: 
+PUSH 0_c_row
+ADDRESS 0_c_row, 0
+PUSH 5_i
+VALUE 5_i, 0
+POP 0_c_row
+PUSH 0_c_col
+ADDRESS 0_c_col, 0
+PUSH 5_j
+VALUE 5_j, 0
+POP 0_c_col
+RET 0
+RET 0
+ENDFUNC 
+FUNC @Matrix_sub:
+PARA 8_row, 0
+PARA 8_col, 0
+VAR 8_i
+PLACEHOLDER 8_i, 0
+VAR 8_j
+PLACEHOLDER 8_j, 0
+PUSH 8_i
+ADDRESS 8_i, 0
+PUSH 0
+POP 8_i
+label_while_21: 
+PUSH 8_i
+VALUE 8_i, 0
+PUSH 8_row
+VALUE 8_row, 0
+CMPLT 
+label_cond_0_24: 
+JZ label_while_end_22
+label_while_block_23: 
+PUSH 8_j
+ADDRESS 8_j, 0
+PUSH 0
+POP 8_j
+label_while_25: 
+PUSH 8_j
+VALUE 8_j, 0
+PUSH 8_col
+VALUE 8_col, 0
+CMPLT 
+label_cond_0_28: 
+JZ label_while_end_26
+label_while_block_27: 
+PUSH 0_c
+PUSH 8_i
+VALUE 8_i, 0
+PUSH 8_j
+VALUE 8_j, 0
+ADDRESS 0_c, 0
+PUSH 0_a
+PUSH 8_i
+VALUE 8_i, 0
+PUSH 8_j
+VALUE 8_j, 0
+VALUE 0_a, 0
+PUSH 0_b
+PUSH 8_i
+VALUE 8_i, 0
+PUSH 8_j
+VALUE 8_j, 0
+VALUE 0_b, 0
+SUB 
+POP 0_c
+PUSH 8_j
+ADDRESS 8_j, 0
+PUSH 8_j
+VALUE 8_j, 0
+PUSH 1
+ADD 
+POP 8_j
+JMP label_while_25
+label_while_end_26: 
+PUSH 8_i
+ADDRESS 8_i, 0
+PUSH 8_i
+VALUE 8_i, 0
+PUSH 1
+ADD 
+POP 8_i
+JMP label_while_21
+label_while_end_22: 
+PUSH 0_c_row
+ADDRESS 0_c_row, 0
+PUSH 8_i
+VALUE 8_i, 0
+POP 0_c_row
+PUSH 0_c_col
+ADDRESS 0_c_col, 0
+PUSH 8_j
+VALUE 8_j, 0
+POP 0_c_col
+RET 0
+RET 0
+ENDFUNC 
+FUNC @Error:
+PUSH 0_err
+ADDRESS 0_err, 0
+PUSH 1
+POP 0_err
+RET 0
+RET 0
+ENDFUNC 
+FUNC @init:
+PARA 12_row, 0
+PARA 12_col, 0
+VAR 12_i
+PUSH 0
+VAR 12_j
+PLACEHOLDER 12_j, 0
+label_while_29: 
+PUSH 12_i
+VALUE 12_i, 0
+PUSH 12_row
+VALUE 12_row, 0
+CMPLT 
+label_cond_0_32: 
+JZ label_while_end_30
+label_while_block_31: 
+PUSH 12_j
+ADDRESS 12_j, 0
+PUSH 0
+POP 12_j
+label_while_33: 
+PUSH 12_j
+VALUE 12_j, 0
+PUSH 12_col
+VALUE 12_col, 0
+CMPLT 
+label_cond_0_36: 
+JZ label_while_end_34
+label_while_block_35: 
+PUSH 0_c
+PUSH 12_i
+VALUE 12_i, 0
+PUSH 12_j
+VALUE 12_j, 0
+ADDRESS 0_c, 0
+PUSH 0
+POP 0_c
+PUSH 12_j
+ADDRESS 12_j, 0
+PUSH 12_j
+VALUE 12_j, 0
+PUSH 1
+ADD 
+POP 12_j
+JMP label_while_33
+label_while_end_34: 
+PUSH 12_i
+ADDRESS 12_i, 0
+PUSH 12_i
+VALUE 12_i, 0
+PUSH 1
+ADD 
+POP 12_i
+JMP label_while_29
+label_while_end_30: 
+RET 0
+RET 0
+ENDFUNC 
+FUNC @Print:
+PARA 15_row, 0
+PARA 15_col, 0
+VAR 15_i
+PLACEHOLDER 15_i, 0
+VAR 15_j
+PLACEHOLDER 15_j, 0
+PUSH 15_i
+ADDRESS 15_i, 0
+PUSH 0
+POP 15_i
+label_while_37: 
+PUSH 15_i
+VALUE 15_i, 0
+PUSH 15_row
+VALUE 15_row, 0
+CMPLT 
+label_cond_0_40: 
+JZ label_while_end_38
+label_while_block_39: 
+PUSH 15_j
+ADDRESS 15_j, 0
+PUSH 0
+POP 15_j
+label_while_41: 
+PUSH 15_j
+VALUE 15_j, 0
+PUSH 15_col
+VALUE 15_col, 0
+CMPLT 
+label_cond_0_44: 
+JZ label_while_end_42
+label_while_block_43: 
+PUSH 15_j
+ADDRESS 15_j, 0
+PUSH 15_j
+VALUE 15_j, 0
+PUSH 1
+ADD 
+POP 15_j
+JMP label_while_41
+label_while_end_42: 
+PUSH 15_i
+ADDRESS 15_i, 0
+PUSH 15_i
+VALUE 15_i, 0
+PUSH 1
+ADD 
+POP 15_i
+JMP label_while_37
+label_while_end_38: 
+PUSH 15_row
+VALUE 15_row, 0
+RPARA 0
+PUSH 15_col
+VALUE 15_col, 0
+RPARA 0
+$init
+RET 0
+RET 0
+ENDFUNC 
+FUNC @meet_conditions:
+PARA 18_kind, 0
+label_if_45: 
+PUSH 18_kind
+VALUE 18_kind, 0
+PUSH 1
+CMPEQ 
+label_cond_0_49: 
+JZ label_else_46
+label_if_block_48: 
+label_if_50: 
+PUSH 0_a_row
+VALUE 0_a_row, 0
+PUSH 0_b_row
+VALUE 0_b_row, 0
+CMPEQ 
+label_cond_0_54: 
+JZ label_else_51
+label_if_block_53: 
+label_if_55: 
+PUSH 0_a_col
+VALUE 0_a_col, 0
+PUSH 0_b_col
+VALUE 0_b_col, 0
+CMPEQ 
+label_cond_0_59: 
+JZ label_else_56
+label_if_block_58: 
+VAR 21_row
+PUSH 0_a_row
+VALUE 0_a_row, 0
+VAR 21_col
+PUSH 0_b_col
+VALUE 0_b_col, 0
+PUSH 21_row
+VALUE 21_row, 0
+RPARA 0
+PUSH 21_col
+VALUE 21_col, 0
+RPARA 0
+$Matrix_add
+JMP label_if_end_57
+label_else_56: 
+label_if_end_57: 
+JMP label_if_end_52
+label_else_51: 
+$Error
+label_if_end_52: 
+JMP label_if_end_47
+label_else_46: 
+label_if_60: 
+PUSH 18_kind
+VALUE 18_kind, 0
+PUSH 2
+CMPEQ 
+label_cond_0_64: 
+JZ label_else_61
+label_if_block_63: 
+label_if_65: 
+PUSH 0_a_row
+VALUE 0_a_row, 0
+PUSH 0_b_row
+VALUE 0_b_row, 0
+CMPEQ 
+label_cond_0_69: 
+JZ label_else_66
+label_if_block_68: 
+label_if_70: 
+PUSH 0_a_col
+VALUE 0_a_col, 0
+PUSH 0_b_col
+VALUE 0_b_col, 0
+CMPEQ 
+label_cond_0_74: 
+JZ label_else_71
+label_if_block_73: 
+VAR 25_row
+PUSH 0_a_row
+VALUE 0_a_row, 0
+VAR 25_col
+PUSH 0_b_col
+VALUE 0_b_col, 0
+PUSH 25_row
+VALUE 25_row, 0
+RPARA 0
+PUSH 25_col
+VALUE 25_col, 0
+RPARA 0
+$Matrix_sub
+JMP label_if_end_72
+label_else_71: 
+label_if_end_72: 
+JMP label_if_end_67
+label_else_66: 
+$Error
+label_if_end_67: 
+JMP label_if_end_62
+label_else_61: 
+label_if_75: 
+PUSH 18_kind
+VALUE 18_kind, 0
+PUSH 3
+CMPEQ 
+label_cond_0_79: 
+JZ label_else_76
+label_if_block_78: 
+label_if_80: 
+PUSH 0_a_col
+VALUE 0_a_col, 0
+PUSH 0_b_row
+VALUE 0_b_row, 0
+CMPEQ 
+label_cond_0_84: 
+JZ label_else_81
+label_if_block_83: 
+$Matrix_mult
+JMP label_if_end_82
+label_else_81: 
+$Error
+label_if_end_82: 
+JMP label_if_end_77
+label_else_76: 
+$Error
+label_if_end_77: 
+label_if_end_62: 
+label_if_end_47: 
+RET 0
+RET 0
+ENDFUNC 
+MAIN main
+PRINT "19182604
+"
+VAR 31_i
+PLACEHOLDER 31_i, 0
+VAR 31_j
+PLACEHOLDER 31_j, 0
+VAR 31_num
+PUSH 0
+label_while_85: 
+PUSH 31_num
+VALUE 31_num, 0
+PUSH 9
+CMPLT 
+label_cond_0_88: 
+JZ label_while_end_86
+label_while_block_87: 
+PUSH 0_err
+ADDRESS 0_err, 0
+PUSH 0
+POP 0_err
+PUSH 0_a_row
+ADDRESS 0_a_row, 0
+GETINT 
+POP 0_a_row
+PUSH 0_a_col
+ADDRESS 0_a_col, 0
+GETINT 
+POP 0_a_col
+PUSH 31_i
+ADDRESS 31_i, 0
+PUSH 0
+POP 31_i
+label_while_89: 
+PUSH 31_i
+VALUE 31_i, 0
+PUSH 0_a_row
+VALUE 0_a_row, 0
+CMPLT 
+label_cond_0_92: 
+JZ label_while_end_90
+label_while_block_91: 
+PUSH 31_j
+ADDRESS 31_j, 0
+PUSH 0
+POP 31_j
+label_while_93: 
+PUSH 31_j
+VALUE 31_j, 0
+PUSH 0_a_col
+VALUE 0_a_col, 0
+CMPLT 
+label_cond_0_96: 
+JZ label_while_end_94
+label_while_block_95: 
+PUSH 0_a
+PUSH 31_i
+VALUE 31_i, 0
+PUSH 31_j
+VALUE 31_j, 0
+ADDRESS 0_a, 0
+GETINT 
+POP 0_a
+PUSH 31_j
+ADDRESS 31_j, 0
+PUSH 31_j
+VALUE 31_j, 0
+PUSH 1
+ADD 
+POP 31_j
+JMP label_while_93
+label_while_end_94: 
+PUSH 31_i
+ADDRESS 31_i, 0
+PUSH 31_i
+VALUE 31_i, 0
+PUSH 1
+ADD 
+POP 31_i
+JMP label_while_89
+label_while_end_90: 
+PUSH 0_b_row
+ADDRESS 0_b_row, 0
+GETINT 
+POP 0_b_row
+PUSH 0_b_col
+ADDRESS 0_b_col, 0
+GETINT 
+POP 0_b_col
+PUSH 31_i
+ADDRESS 31_i, 0
+PUSH 0
+POP 31_i
+label_while_97: 
+PUSH 31_i
+VALUE 31_i, 0
+PUSH 0_b_row
+VALUE 0_b_row, 0
+CMPLT 
+label_cond_0_100: 
+JZ label_while_end_98
+label_while_block_99: 
+PUSH 31_j
+ADDRESS 31_j, 0
+PUSH 0
+POP 31_j
+label_while_101: 
+PUSH 31_j
+VALUE 31_j, 0
+PUSH 0_b_col
+VALUE 0_b_col, 0
+CMPLT 
+label_cond_0_104: 
+JZ label_while_end_102
+label_while_block_103: 
+PUSH 0_b
+PUSH 31_i
+VALUE 31_i, 0
+PUSH 31_j
+VALUE 31_j, 0
+ADDRESS 0_b, 0
+GETINT 
+POP 0_b
+PUSH 31_j
+ADDRESS 31_j, 0
+PUSH 31_j
+VALUE 31_j, 0
+PUSH 1
+ADD 
+POP 31_j
+JMP label_while_101
+label_while_end_102: 
+PUSH 31_i
+ADDRESS 31_i, 0
+PUSH 31_i
+VALUE 31_i, 0
+PUSH 1
+ADD 
+POP 31_i
+JMP label_while_97
+label_while_end_98: 
+PUSH 31_num
+VALUE 31_num, 0
+PRINT "%d
+"
+VAR 36_kind
+PLACEHOLDER 36_kind, 0
+PUSH 36_kind
+ADDRESS 36_kind, 0
+GETINT 
+POP 36_kind
+PUSH 36_kind
+VALUE 36_kind, 0
+RPARA 0
+$meet_conditions
+label_if_105: 
+PUSH 0_err
+VALUE 0_err, 0
+PUSH 1
+CMPNE 
+label_cond_0_109: 
+JZ label_else_106
+label_if_block_108: 
+JMP label_if_end_107
+label_else_106: 
+label_if_end_107: 
+PUSH 31_num
+ADDRESS 31_num, 0
+PUSH 31_num
+VALUE 31_num, 0
+PUSH 1
+ADD 
+POP 31_num
+JMP label_while_85
+label_while_end_86: 
+PUSH 0
+RET 1
+EXIT 

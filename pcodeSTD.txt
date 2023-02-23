@@ -1,0 +1,456 @@
+VAR 0_global_array
+PUSH 10
+DIMVAR 0_global_array, 1
+PLACEHOLDER 0_global_array, 1
+FUNC @addIndex:
+PARA 1_i, 0
+PARA 1_array, 1
+PUSH 1_array
+PUSH 1_i
+VALUE 1_i, 0
+ADDRESS 1_array, 0
+PUSH 1_array
+PUSH 1_i
+VALUE 1_i, 0
+VALUE 1_array, 0
+PUSH 1
+ADD 
+POP 1_array
+PUSH 1
+RET 1
+RET 0
+ENDFUNC 
+MAIN main
+VAR 2_a0
+PUSH 0
+VAR 2_a1
+PUSH 1
+label_if_1: 
+PUSH 2_a0
+VALUE 2_a0, 0
+NOT 
+JZ label_cond_0_5
+PUSH 2_a1
+VALUE 2_a1, 0
+AND 
+label_cond_0_5: 
+JZ label_else_2
+label_if_block_4: 
+PUSH 0_global_array
+PUSH 1
+ADDRESS 0_global_array, 0
+PUSH 1
+POP 0_global_array
+JMP label_if_end_3
+label_else_2: 
+label_if_end_3: 
+label_if_6: 
+PUSH 2_a0
+VALUE 2_a0, 0
+JZ label_cond_0_10
+PUSH 2_a1
+VALUE 2_a1, 0
+AND 
+label_cond_0_10: 
+JZ label_else_7
+label_if_block_9: 
+PUSH 0_global_array
+PUSH 2
+ADDRESS 0_global_array, 0
+PUSH 1
+NEG 
+POP 0_global_array
+JMP label_if_end_8
+label_else_7: 
+PUSH 0_global_array
+PUSH 2
+ADDRESS 0_global_array, 0
+PUSH 2
+POP 0_global_array
+label_if_end_8: 
+label_if_11: 
+PUSH 2_a1
+VALUE 2_a1, 0
+NOT 
+JZ label_cond_0_15
+PUSH 2_a0
+VALUE 2_a0, 0
+AND 
+label_cond_0_15: 
+JZ label_else_12
+label_if_block_14: 
+PUSH 0_global_array
+PUSH 3
+ADDRESS 0_global_array, 0
+PUSH 1
+NEG 
+POP 0_global_array
+JMP label_if_end_13
+label_else_12: 
+PUSH 0_global_array
+PUSH 3
+ADDRESS 0_global_array, 0
+PUSH 3
+POP 0_global_array
+label_if_end_13: 
+VAR 2_i
+PUSH 1
+label_while_16: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 5
+CMPLT 
+JZ label_cond_0_19
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 0
+CMPGT 
+AND 
+label_cond_0_19: 
+JZ label_while_end_17
+label_while_block_18: 
+PUSH 2_i
+ADDRESS 2_i, 0
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 2
+MUL 
+POP 2_i
+JMP label_while_16
+label_while_end_17: 
+label_if_20: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 5
+CMPGE 
+label_cond_0_24: 
+JZ label_else_21
+label_if_block_23: 
+PUSH 0_global_array
+PUSH 4
+ADDRESS 0_global_array, 0
+PUSH 4
+POP 0_global_array
+JMP label_if_end_22
+label_else_21: 
+PUSH 0_global_array
+PUSH 4
+ADDRESS 0_global_array, 0
+PUSH 1
+NEG 
+POP 0_global_array
+label_if_end_22: 
+label_if_25: 
+PUSH 2_a0
+VALUE 2_a0, 0
+label_cond_0_29: 
+JNZ label_if_block_28
+PUSH 2_a1
+VALUE 2_a1, 0
+label_cond_1_30: 
+OR 
+JZ label_else_26
+label_if_block_28: 
+PUSH 0_global_array
+PUSH 5
+ADDRESS 0_global_array, 0
+PUSH 5
+POP 0_global_array
+JMP label_if_end_27
+label_else_26: 
+PUSH 0_global_array
+PUSH 5
+ADDRESS 0_global_array, 0
+PUSH 1
+NEG 
+POP 0_global_array
+label_if_end_27: 
+label_if_31: 
+PUSH 2_a0
+VALUE 2_a0, 0
+label_cond_0_35: 
+JNZ label_if_block_34
+PUSH 2_a1
+VALUE 2_a1, 0
+NOT 
+label_cond_1_36: 
+OR 
+JZ label_else_32
+label_if_block_34: 
+PUSH 0_global_array
+PUSH 6
+ADDRESS 0_global_array, 0
+PUSH 1
+NEG 
+POP 0_global_array
+JMP label_if_end_33
+label_else_32: 
+PUSH 0_global_array
+PUSH 6
+ADDRESS 0_global_array, 0
+PUSH 6
+POP 0_global_array
+label_if_end_33: 
+label_while_37: 
+PUSH 6
+PUSH 3
+CMPLT 
+label_cond_0_40: 
+JNZ label_while_block_39
+PUSH 4
+PUSH 7
+CMPLE 
+label_cond_1_41: 
+OR 
+JZ label_while_end_38
+label_while_block_39: 
+PUSH 0_global_array
+PUSH 7
+ADDRESS 0_global_array, 0
+PUSH 7
+POP 0_global_array
+JMP label_while_end_38
+JMP label_while_37
+label_while_end_38: 
+label_if_42: 
+PUSH 0_global_array
+PUSH 7
+VALUE 0_global_array, 0
+PUSH 7
+CMPNE 
+label_cond_0_46: 
+JZ label_else_43
+label_if_block_45: 
+PUSH 0_global_array
+PUSH 7
+ADDRESS 0_global_array, 0
+PUSH 1
+NEG 
+POP 0_global_array
+JMP label_if_end_44
+label_else_43: 
+label_if_end_44: 
+VAR 10_tool
+PUSH 2
+DIMVAR 10_tool, 1
+PUSH 0
+PUSH 0
+label_if_47: 
+PUSH 0
+JZ label_cond_0_51
+PUSH 0
+RPARA 0
+PUSH 10_tool
+ADDRESS 10_tool, 1
+RPARA 1
+$addIndex
+AND 
+label_cond_0_51: 
+JZ label_else_48
+label_if_block_50: 
+JMP label_if_end_49
+label_else_48: 
+label_if_end_49: 
+label_if_52: 
+PUSH 10_tool
+PUSH 0
+VALUE 10_tool, 0
+label_cond_0_56: 
+JZ label_else_53
+label_if_block_55: 
+PUSH 0_global_array
+PUSH 8
+ADDRESS 0_global_array, 0
+PUSH 1
+NEG 
+POP 0_global_array
+JMP label_if_end_54
+label_else_53: 
+PUSH 0_global_array
+PUSH 8
+ADDRESS 0_global_array, 0
+PUSH 8
+POP 0_global_array
+label_if_end_54: 
+label_if_57: 
+PUSH 1
+label_cond_0_61: 
+JNZ label_if_block_60
+PUSH 1
+RPARA 0
+PUSH 10_tool
+ADDRESS 10_tool, 1
+RPARA 1
+$addIndex
+label_cond_1_62: 
+OR 
+JZ label_else_58
+label_if_block_60: 
+JMP label_if_end_59
+label_else_58: 
+label_if_end_59: 
+label_if_63: 
+PUSH 10_tool
+PUSH 1
+VALUE 10_tool, 0
+label_cond_0_67: 
+JZ label_else_64
+label_if_block_66: 
+PUSH 0_global_array
+PUSH 9
+ADDRESS 0_global_array, 0
+PUSH 1
+NEG 
+POP 0_global_array
+JMP label_if_end_65
+label_else_64: 
+PUSH 0_global_array
+PUSH 9
+ADDRESS 0_global_array, 0
+PUSH 9
+POP 0_global_array
+label_if_end_65: 
+PRINT "19231011
+"
+PRINT "start checking for logic expressions
+"
+PUSH 2_i
+ADDRESS 2_i, 0
+PUSH 0
+POP 2_i
+label_while_68: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 5
+CMPLT 
+JZ label_cond_0_71
+PUSH 0_global_array
+PUSH 2_i
+VALUE 2_i, 0
+VALUE 0_global_array, 0
+PUSH 2_i
+VALUE 2_i, 0
+CMPEQ 
+AND 
+label_cond_0_71: 
+JZ label_while_end_69
+label_while_block_70: 
+PUSH 2_i
+ADDRESS 2_i, 0
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+ADD 
+POP 2_i
+JMP label_while_68
+label_while_end_69: 
+label_if_72: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 5
+CMPEQ 
+label_cond_0_76: 
+JZ label_else_73
+label_if_block_75: 
+PRINT "check for AND calculation: successfully!
+"
+JMP label_if_end_74
+label_else_73: 
+PRINT "check for AND calculation: something wrong!
+"
+label_if_end_74: 
+PUSH 2_i
+ADDRESS 2_i, 0
+PUSH 5
+POP 2_i
+label_while_77: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 8
+CMPLT 
+JZ label_cond_0_80
+PUSH 0_global_array
+PUSH 2_i
+VALUE 2_i, 0
+VALUE 0_global_array, 0
+PUSH 2_i
+VALUE 2_i, 0
+CMPEQ 
+AND 
+label_cond_0_80: 
+JZ label_while_end_78
+label_while_block_79: 
+PUSH 2_i
+ADDRESS 2_i, 0
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+ADD 
+POP 2_i
+JMP label_while_77
+label_while_end_78: 
+label_if_81: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 8
+CMPEQ 
+label_cond_0_85: 
+JZ label_else_82
+label_if_block_84: 
+PRINT "check for OR calculation: successfully!
+"
+JMP label_if_end_83
+label_else_82: 
+PRINT "check for OR calculation: something wrong!
+"
+label_if_end_83: 
+PUSH 2_i
+ADDRESS 2_i, 0
+PUSH 8
+POP 2_i
+label_while_86: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 10
+CMPLT 
+JZ label_cond_0_89
+PUSH 0_global_array
+PUSH 2_i
+VALUE 2_i, 0
+VALUE 0_global_array, 0
+PUSH 2_i
+VALUE 2_i, 0
+CMPEQ 
+AND 
+label_cond_0_89: 
+JZ label_while_end_87
+label_while_block_88: 
+PUSH 2_i
+ADDRESS 2_i, 0
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 1
+ADD 
+POP 2_i
+JMP label_while_86
+label_while_end_87: 
+label_if_90: 
+PUSH 2_i
+VALUE 2_i, 0
+PUSH 10
+CMPEQ 
+label_cond_0_94: 
+JZ label_else_91
+label_if_block_93: 
+PRINT "check for short-circuit calculation: successfully!
+"
+JMP label_if_end_92
+label_else_91: 
+PRINT "check for short-circuit calculation: something wrong!
+"
+label_if_end_92: 
+PRINT "end checking
+"
+PUSH 0
+RET 1
+EXIT 
